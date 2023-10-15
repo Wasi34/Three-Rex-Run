@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ui {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+@keyframes game-over-anim {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+.game-over-layout {
+  opacity: 0.0;
+
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  display:block;
+	position:absolute;
+}
+
+.game-over-layout.active {
+  opacity: 1.0;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.game-over-text {
+  font-size: 5em;
+  color: white;
+  text-shadow: 8px 8px black;
+
+  margin-left:412px;
+	margin-bottom:-35px;
+	position:relative;
+	margin-top:185px;
+	top:20px;
+}
+
+.score-text {
+  font-size: 3em;
+  color: white;
+  padding: 2em;
+  text-shadow: 5px 5px black;
+
+  margin-left:285px;
+	margin-bottom:-150px;
+}
+
+.score-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.game-menu-layout {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+ 
+}
+
+.game-menu-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin-left:200px;
+  margin-top:-50px;
+}
+
+.game-menu-window > img {
+  width: 64px;
+  height: 64px;
+  padding-top: 100px;
+  image-rendering: pixelated;
+}
+
+.game-menu-window > h1 {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  font-weight: 500;
+  color: rgb(32, 33, 36);
+}
+
+.game-menu-window > p, li {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.55em;
+  color: rgb(95, 99, 104);
+}
+
+.game-menu-window > #error {
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 1.55em;
+  color: rgb(95, 99, 104);
+  margin-top: 12px;
+}
+
+.game-mood{
+  margin-top:270px;
+  margin-left:-100px;
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+}
+.game-mood>span{
+  border: 2px solid black;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+ 
+/* CSS for the Day-Night Image */
+
+
+
+
+.gallery {
+  --z: 28px;  /* control the zig-zag  */
+  --s: 250px; /* control the size */
+  --g: 7px;   /* control the gap */
+  
+  display: grid;
+  gap: var(--g);
+  width: calc(2*var(--s) + var(--g));
+  grid-auto-flow: column;
+  margin-left: 100px;
+}
+.gallery > img {
+  width: 0;
+  min-width: calc(100% + var(--z)/2);
+  height: var(--s);
+  object-fit: cover;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  cursor: pointer;
+  transition: .5s;
+}
+.gallery > img:hover {
+  width: calc(var(--s)/2);
+}
+.gallery > img:first-child {
+  place-self: start;
+  clip-path: polygon(calc(2*var(--z)) 0,100% 0,100% 100%,0 100%);
+  --mask: 
+    conic-gradient(from -135deg at right,#0000,#000 1deg 89deg,#0000 90deg) 
+      50%/100% calc(2*var(--z)) repeat-y;
+}
+.gallery > img:last-child {
+  place-self: end;
+  clip-path: polygon(0 0,100% 0,calc(100% - 2*var(--z)) 100%,0 100%);
+  --mask: 
+    conic-gradient(from   45deg at left ,#0000,#000 1deg 89deg,#0000 90deg) 
+      50% calc(50% - var(--z))/100% calc(2*var(--z)) repeat-y;
+}
+
+
+/* CSS for the Button of Day-Night */
+
+
+.boton {
+  width: 200px;
+  height: 50px;
+  margin: 200px auto;
+  display: block;
+  position: relative;
+  margin-top:-190px;
+  margin-left:-45px;
+  box-shadow: 6px 6px 3px black;
+  
+}
+
+.botontext {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.twist {
+  display: block;
+  height: 100%;
+  width: 25%;
+  position: relative;
+  float: left;
+  margin-left: -4px;
+}
+
+.twist:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #f2d600;
+  bottom: 100%;
+  position: absolute;
+  transform-origin: center bottom 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, -0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.twist:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  height: 100%;
+  background: #faf3c0;
+  transform-origin: center top 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, -0.003,
+          0, -50, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton:hover .twist:before {
+  background: #f3e260;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0.003,
+          0, 50, 0, 1);
+}
+
+.boton:hover .twist:after {
+  background: #dedae1;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, 0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+}
+
+.boton .twist:nth-of-type(1) {
+  margin-left: 0;
+}
+
+.boton .twist:nth-of-type(1):before,
+.boton .twist:nth-of-type(1):after {
+  transition-delay: 0s;
+}
+
+.boton .twist:nth-of-type(2):before,
+.boton .twist:nth-of-type(2):after {
+  transition-delay: 0.1s;
+}
+
+.boton .twist:nth-of-type(3):before,
+.boton .twist:nth-of-type(3):after {
+  transition-delay: 0.2s;
+}
+
+.boton .twist:nth-of-type(4):before,
+.boton .twist:nth-of-type(4):after {
+  transition-delay: 0.3s;
+}
+
+.boton .botontext:nth-of-type(1) {
+  color: #3d3b40;
+  bottom: 100%;
+  transform-origin: center bottom 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, -0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton:hover .botontext:nth-of-type(1) {
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0.003,
+          0, 50, 0, 1);
+}
+
+.boton .botontext:nth-of-type(2) {
+  /* color: #fff; */
+  color: black;
+  top: 100%;
+  transform-origin: center top 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, -0.003,
+          0, -50, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton:hover .botontext:nth-of-type(2) {
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, 0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+}
+
+/*MENU*/
+
+.square {
+  border: 1px solid #9f7f5e;
+  height: 26px;
+  width: 26px;
+  display: block;
+  margin: 40px auto;
+  transform: rotate(45deg);
+  overflow: hidden;
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+
+.square .burgerwrap {
+  height: 18px;
+  width: 21px;
+  transform: rotate(-45deg);
+  padding-left: 5px;
+  padding-top: 8px;
+
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.square:hover {
+  transform: rotate(135deg);
+  border: 1px solid #fff;
+}
+
+.square:hover .burgerwrap {
+  transform: rotate(-135deg)
+}
+
+.square span {
+  height: 2px;
+  width: 14px;
+  background: #9f7f5e;
+  display: block;
+  margin-bottom: 2px;
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.square span:after {
+  content: "";
+  height: 2px;
+  width: 14px;
+  position: absolute;
+  background: #fff;
+  left: -19px;
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.square:hover span {
+  margin-left: 26px;
+}
+
+.square:hover span:after {
+  left: 5px;
+}
+
+.square span:nth-of-type(1),
+.square span:nth-of-type(1):after {
+  transition-delay: 0.1s;
+}
+
+.square span:nth-of-type(2),
+.square span:nth-of-type(2):after {
+  transition-delay: 0.2s;
+}
+
+.square span:nth-of-type(3),
+.square span:nth-of-type(3):after {
+  transition-delay: 0.3s;
+}
+
+/* 
+CSS for the day button */
+
+.boton-2 {
+  box-shadow: 6px 6px 3px black;
+  width: 200px;
+  height: 50px;
+  top:450px;
+  margin-left:-25px;
+  display: block;
+  position: relative;
+}
+
+.botontext-2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.twist-2 {
+  display: block;
+  height: 100%;
+  width: 25%;
+  position: relative;
+  float: left;
+  margin-left: -4px;
+}
+
+.twist-2:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #0c1445;
+  bottom: 100%;
+  position: absolute;
+  transform-origin: center bottom 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, -0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.twist-2:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  height: 100%;
+  background: #5c54a4;
+  transform-origin: center top 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, -0.003,
+          0, -50, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton-2:hover .twist-2:before {
+  background: #0c1445;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0.003,
+          0, 50, 0, 1);
+}
+
+.boton-2:hover .twist-2:after {
+  background: #0c1445;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, 0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+}
+
+.boton-2 .twist-2:nth-of-type(1) {
+  margin-left: 0;
+}
+
+.boton-2 .twist-2:nth-of-type(1):before,
+.boton-2 .twist-2:nth-of-type(1):after {
+  transition-delay: 0s;
+}
+
+.boton-2 .twist-2:nth-of-type(2):before,
+.boton-2 .twist-2:nth-of-type(2):after {
+  transition-delay: 0.1s;
+}
+
+.boton-2 .twist-2:nth-of-type(3):before,
+.boton-2 .twist-2:nth-of-type(3):after {
+  transition-delay: 0.2s;
+}
+
+.boton-2 .twist-2:nth-of-type(4):before,
+.boton-2 .twist-2:nth-of-type(4):after {
+  transition-delay: 0.3s;
+}
+
+.boton-2 .botontext-2:nth-of-type(1) {
+  color: #3d3b40;
+  bottom: 100%;
+  transform-origin: center bottom 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, -0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton-2:hover .botontext-2:nth-of-type(1) {
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0.003,
+          0, 50, 0, 1);
+}
+
+.boton-2 .botontext-2:nth-of-type(2) {
+  color: #0c1445;
+  top: 100%;
+  transform-origin: center top 0px;
+  transform: matrix3d(1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, -0.003,
+          0, -50, 0, 1);
+
+  -webkit-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -moz-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  -o-transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  transition: all 500ms cubic-bezier(0.970, 0.000, 0.395, 0.995);
+  /* custom */
+}
+
+.boton-2:hover .botontext-2:nth-of-type(2) {
+  transform: matrix3d(1, 0, 0, 0,
+          0, 0, -1, 0.003,
+          0, 1, 0, 0,
+          0, 0, 0, 1);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Buttons</title>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .box-button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .box-button.selected {
+            background-image: linear-gradient(45deg, #FF9A8B, #FF6A88, #FF476A);
+            /* Gradient background */
+            color: white;
+            /* Change text color for better contrast */
+        }
+
+        .box-button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button class="box-button" value="Parasaurolophus">Parasaurolophus</button>
+        <button class="box-button" value="Triceratops">Triceratops</button>
+        <button class="box-button" value="Stegosaurus">Stegosaurus</button>
+        <button class="box-button" value="Trex">Trex</button>
+        <button class="box-button" value="Velociraptor">Velociraptor</button>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.box-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+
+</html>

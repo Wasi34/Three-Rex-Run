@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Buttons</title>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .box-button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .box-button.selected {
+            background-color: black;
+            /* Change this to your desired selected color */
+            color: white;
+            /* Change text color for better contrast */
+        }
+
+        .box-button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button class="box-button" id="parasaurolophus" value="parasaurolophus">Parasaurolophus</button>
+        <button class="box-button" id="triceratops" value="triceratops">Triceratops</button>
+        <button class="box-button" id="stegosaurus" value="stegosaurus">Stegosaurus</button>
+        <button class="box-button" id="trex" value="trex">Trex</button>
+        <button class="box-button" id="velociraptor" value="velociraptor">Velociraptor</button>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.box-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
+        let selectedBtn;
+        const btn = document.querySelectorAll('.box-button');
+
+        btn.forEach(button => {
+            button.addEventListener('click', () => {
+                console.log(button.value);
+            });
+        });
+    </script>
+</body>
+
+</html>
