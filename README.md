@@ -1,4 +1,7 @@
 # Three-Rex-Run
 
-Course No: CSE 4204
-Course Name: Computer Graphics Lab
+<br/>Course No: CSE 4204
+<br/>Course Name: Computer Graphics Lab
+
+<br/>In this project, we made the Google Chrome T-Rex
+dinosaur game using three.js in a 3D environment.
