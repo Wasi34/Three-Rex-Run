@@ -11,6 +11,5 @@ We improved the original version of this project by adding extra features. The o
 - Dynamic Day and Night Modes
 - Versatile Camera Angles
 - Diverse Dinosaur Selection
-   
 <br/>  
 Original Version: https://youtu.be/KJ38qCwFdy8?si=OW4U3mcIjhYZfb3E
